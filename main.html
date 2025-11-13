@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Mon portfolio</title>
+    <meta name="description" content="Portfolio de [Votre nom] — développeur, designer, etc." />
+
+    <!-- Styles de base -->
+    <style>
+        :root{
+            --bg:#0f1724; --card:#111827; --muted:#9ca3af; --accent:#06b6d4; --white:#eef2ff;
+            --radius:10px; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#081026);color:var(--white)}
+        .container{max-width:1000px;margin:40px auto;padding:24px}
+        header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+        .brand{display:flex;align-items:center;gap:12px}
+        .logo{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#7c3aed)}
+        nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-weight:600}
+        .hero{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:32px;align-items:start}
+        .card{background:rgba(255,255,255,0.03);padding:20px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.6)}
+        h1{margin:0 0 8px;font-size:28px}
+        p.lead{color:var(--muted);margin:0 0 16px}
+        .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}
+        .project{padding:14px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.02))}
+        footer{margin-top:36px;color:var(--muted);font-size:13px;text-align:center}
+        .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--accent);color:#042028;text-decoration:none;font-weight:700}
+        @media (max-width:800px){.hero{grid-template-columns:1fr}}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="brand">
+                <div class="logo" aria-hidden="true"></div>
+                <div>
+                    <div style="font-weight:800">[Votre nom]</div>
+                    <div style="font-size:13px;color:var(--muted)">Développeur · Designer · Créateur</div>
+                </div>
+            </div>
+            <nav>
+                <a href="#about">A propos</a>
+                <a href="#projects">Projets</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <div class="card">
+                <h1>Bonjour, je suis [Votre nom]</h1>
+                <p class="lead">Je crée des interfaces et des expériences numériques. Spécialités: front-end, UI/UX, JS, HTML/CSS.</p>
+                <p>Quelques projets récents et liens utiles ci-dessous. Remplace les textes et images par ton contenu.</p>
+                <p style="margin-top:12px"><a class="btn" href="#projects">Voir mes projets</a></p>
+            </div>
+
+            <aside class="card">
+                <h3>Contact</h3>
+                <p style="color:var(--muted);margin:8px 0">Email: <a href="mailto:toi@example.com" style="color:var(--accent)">toi@example.com</a></p>
+                <p style="color:var(--muted);margin:8px 0">GitHub: <a href="#" style="color:var(--accent)">github.com/ton-nom</a></p>
+                <p style="margin-top:12px;color:var(--muted)">Télécharge mon CV: <a href="#" style="color:var(--accent)">PDF</a></p>
+            </aside>
+        </section>
+
+        <section id="projects">
+            <h2 style="margin-top:28px">Projets</h2>
+            <div class="projects">
+                <article class="project">
+                    <strong>Projet 1</strong>
+                    <p style="color:var(--muted);margin:8px 0">Courte description du projet, tech utilisées et rôle.</p>
+                    <a href="#" style="color:var(--accent)">Voir le projet →</a>
+                </article>
+
+                <article class="project">
+                    <strong>Projet 2</strong>
+                    <p style="color:var(--muted);margin:8px 0">Courte description du projet, tech utilisées et rôle.</p>
+                    <a href="#" style="color:var(--accent)">Voir le projet →</a>
+                </article>
+
+                <!-- Duplique les blocs de projet pour ajouter d'autres projets -->
+            </div>
+        </section>
+
+        <section id="about" style="margin-top:28px">
+            <h2>A propos</h2>
+            <div class="card" style="margin-top:12px">
+                <p style="color:var(--muted);margin:0">Présente-toi en quelques lignes : expérience, intérêts techniques, disponibilité, etc.</p>
+            </div>
+        </section>
+
+        <section id="contact" style="margin-top:28px">
+            <h2>Contact</h2>
+            <div class="card" style="margin-top:12px">
+                <p style="color:var(--muted);margin:0">Formulaire ou instructions pour te contacter (email, LinkedIn, etc.).</p>
+            </div>
+        </section>
+
+        <footer>
+            © <span id="year"></span> [Votre nom] — Portfolio statique
+        </footer>
+    </div>
+
+    <script>
+        // Petites améliorations JS
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
