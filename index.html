@@ -1,109 +1,155 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Mon portfolio</title>
-    <meta name="description" content="Portfolio de [Votre nom] — développeur, designer, etc." />
-
-    <!-- Styles de base -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tristan Gayrard's Portfolio</title>
     <style>
-        :root{
-            --bg:#0f1724; --card:#111827; --muted:#9ca3af; --accent:#06b6d4; --white:#eef2ff;
-            --radius:10px; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            color: #222;
         }
-        *{box-sizing:border-box}
-        html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg),#081026);color:var(--white)}
-        .container{max-width:1000px;margin:40px auto;padding:24px}
-        header{display:flex;align-items:center;justify-content:space-between;gap:16px}
-        .brand{display:flex;align-items:center;gap:12px}
-        .logo{width:48px;height:48px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#7c3aed)}
-        nav a{color:var(--muted);text-decoration:none;margin-left:16px;font-weight:600}
-        .hero{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:32px;align-items:start}
-        .card{background:rgba(255,255,255,0.03);padding:20px;border-radius:var(--radius);box-shadow:0 6px 18px rgba(2,6,23,0.6)}
-        h1{margin:0 0 8px;font-size:28px}
-        p.lead{color:var(--muted);margin:0 0 16px}
-        .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}
-        .project{padding:14px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.02))}
-        footer{margin-top:36px;color:var(--muted);font-size:13px;text-align:center}
-        .btn{display:inline-block;padding:10px 14px;border-radius:8px;background:var(--accent);color:#042028;text-decoration:none;font-weight:700}
-        @media (max-width:800px){.hero{grid-template-columns:1fr}}
+
+        header {
+            background: white;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #ddd;
+            position: sticky;
+            top: 0;
+        }
+
+        nav {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #222;
+            font-size: 1rem;
+            padding-bottom: 0.2rem;
+        }
+
+        nav a:hover {
+            border-bottom: 2px solid #222;
+        }
+
+        .section {
+            padding: 3rem 2rem;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        h1, h2 {
+            font-weight: 600;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            margin: 1rem 0;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="brand">
-                <div class="logo" aria-hidden="true"></div>
-                <div>
-                    <div style="font-weight:800">[Votre nom]</div>
-                    <div style="font-size:13px;color:var(--muted)">Développeur · Designer · Créateur</div>
-                </div>
-            </div>
-            <nav>
-                <a href="#about">A propos</a>
-                <a href="#projects">Projets</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </header>
 
-        <section class="hero">
-            <div class="card">
-                <h1>Bonjour, je suis [Votre nom]</h1>
-                <p class="lead">Je crée des interfaces et des expériences numériques. Spécialités: front-end, UI/UX, JS, HTML/CSS.</p>
-                <p>Quelques projets récents et liens utiles ci-dessous. Remplace les textes et images par ton contenu.</p>
-                <p style="margin-top:12px"><a class="btn" href="#projects">Voir mes projets</a></p>
-            </div>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#general">General</a>
+            <a href="#professional">Professional</a>
+            <a href="#technical">Technical</a>
+            <a href="#projects">My Projects</a>
+            <a href="#resume">My Resume</a>
+            <a href="#contact">Get in Touch</a>
+        </nav>
+    </header>
 
-            <aside class="card">
-                <h3>Contact</h3>
-                <p style="color:var(--muted);margin:8px 0">Email: <a href="mailto:toi@example.com" style="color:var(--accent)">toi@example.com</a></p>
-                <p style="color:var(--muted);margin:8px 0">GitHub: <a href="#" style="color:var(--accent)">github.com/ton-nom</a></p>
-                <p style="margin-top:12px;color:var(--muted)">Télécharge mon CV: <a href="#" style="color:var(--accent)">PDF</a></p>
-            </aside>
-        </section>
+    <!-- HOME -->
+    <section class="section" id="home">
+        <h1>Welcome</h1>
+        <div class="card"></div>
+            <img src="images/boat_pic.jpg" alt="Boat on water" style="max-width:100%;height:auto;border-radius:8px;margin-bottom:1rem;">
+            <p>Hi, I’m Tristan. This is my portfolio. You can explore my background, my skills, and my projects using the menu above.</p>
+        </div>
+    </section>
 
-        <section id="projects">
-            <h2 style="margin-top:28px">Projets</h2>
-            <div class="projects">
-                <article class="project">
-                    <strong>Projet 1</strong>
-                    <p style="color:var(--muted);margin:8px 0">Courte description du projet, tech utilisées et rôle.</p>
-                    <a href="#" style="color:var(--accent)">Voir le projet →</a>
-                </article>
+    <!-- GENERAL -->
+    <section class="section" id="general">
+        <h2>General</h2>
+        <div class="card">
+            <p>This Portfolio is designed to showcase the general, professional and technical aspects of my career, particularly as a student in Oceanic, Atmospheric en Climate Sciences, but also my personal interests. It aims to provide a comprehensive overview of my skills and experiences.</p>
+        </div>
+        <h3>My Story</h3>
+        <div class="card">
+            <p>Share your background, education, and personal interests here.</p>
+        </div>
+        <h3>My Hobbies</h3>
+        <div class="card">
+            <p> I have two main hobbies: mountain biking and fishing!
+                
+                I've been a mountain biker for the last decade and have consistently ridden my bike every weekend, going on epic rides throughout the south of France and even in America!
+                
+                As for fishing, I started during the pandemic in 2020, and now I go whenever I don’t get the chance to ride my bike. I usually fish for trout or pike</p>
+        </div>
+    </section>
 
-                <article class="project">
-                    <strong>Projet 2</strong>
-                    <p style="color:var(--muted);margin:8px 0">Courte description du projet, tech utilisées et rôle.</p>
-                    <a href="#" style="color:var(--accent)">Voir le projet →</a>
-                </article>
+    <!-- PROFESSIONAL -->
+    <section class="section" id="professional">
+        <h2>Professional</h2>
+        <div class="card">
+            <p>Describe your work experience, your apprenticeship, and professional responsibilities.</p>
+        </div>
+    </section>
 
-                <!-- Duplique les blocs de projet pour ajouter d'autres projets -->
-            </div>
-        </section>
+    <!-- TECHNICAL -->
+    <section class="section" id="technical">
+        <h2>Technical</h2>
+        <div class="card">
+            <p>List your technical skills: physics tools, metrology, measurement devices, software, programming, etc.</p>
+        </div>
+    </section>
 
-        <section id="about" style="margin-top:28px">
-            <h2>A propos</h2>
-            <div class="card" style="margin-top:12px">
-                <p style="color:var(--muted);margin:0">Présente-toi en quelques lignes : expérience, intérêts techniques, disponibilité, etc.</p>
-            </div>
-        </section>
+    <!-- RESUME -->
+    <section class="section" id="resume">
+        <h2>My Resume</h2>
+        <div class="card">
+            <p>You can embed your CV here or link to a PDF.</p>
+            <a href="cv.pdf" target="_blank">Download résumé (PDF)</a>
+        </div>
+    </section>
 
-        <section id="contact" style="margin-top:28px">
-            <h2>Contact</h2>
-            <div class="card" style="margin-top:12px">
-                <p style="color:var(--muted);margin:0">Formulaire ou instructions pour te contacter (email, LinkedIn, etc.).</p>
-            </div>
-        </section>
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+        <h2>My Projects</h2>
+        <div class="card">
+            <p>Showcase your projects. Add images or links if needed.</p>
+        </div>
+    </section>
 
-        <footer>
-            © <span id="year"></span> [Votre nom] — Portfolio statique
-        </footer>
-    </div>
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+        <h2>Get in Touch</h2>
+        <div class="card">
+            <p>Email: tristan.gayrard@utoulouse.fr</p>
+        </div>
+    </section>
 
-    <script>
-        // Petites améliorations JS
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    <footer>
+        © 2025 Tristan Gayrard — Portfolio
+    </footer>
+
 </body>
 </html>
