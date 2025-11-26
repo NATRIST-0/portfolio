@@ -4,67 +4,243 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tristan Gayrard's Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            color: #222;
+        /* CSS Variables for easy customization */
+        :root {
+            --primary-color: #003366; /* Deep Blue/Navy */
+            --secondary-color: #ffffff;
+            --background-color: #f5f7fa; /* Light background */
+            --text-color: #333333;
+            --light-text-color: #6c757d;
+            --border-color: #e9ecef;
+            --font-family: 'Poppins', Arial, sans-serif;
         }
 
+        body {
+            margin: 0;
+            font-family: var(--font-family);
+            background: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* --- Navigation and Header --- */
         header {
-            background: white;
+            background: var(--secondary-color);
             padding: 1rem 2rem;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 3px solid var(--primary-color);
             position: sticky;
             top: 0;
+            z-index: 1000;
         }
 
         nav {
             display: flex;
-            gap: 1.5rem;
+            justify-content: center; 
+            gap: 2rem;
+            flex-wrap: wrap; 
         }
 
         nav a {
             text-decoration: none;
-            color: #222;
+            color: var(--text-color);
             font-size: 1rem;
-            padding-bottom: 0.2rem;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            transition: color 0.3s, border-bottom 0.3s;
         }
 
         nav a:hover {
-            border-bottom: 2px solid #222;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--primary-color);
         }
 
+        /* --- General Layout --- */
         .section {
-            padding: 3rem 2rem;
-            max-width: 900px;
+            padding: 4rem 2rem;
+            max-width: 1000px;
             margin: auto;
         }
 
-        h1, h2 {
-            font-weight: 600;
+        h1 {
+            font-weight: 700;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 2rem;
         }
 
+        h2 {
+            font-weight: 600;
+            font-size: 2rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        h3 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- 'Card' Components --- */
+        .card {
+            background: var(--secondary-color);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin: 1.5rem 0;
+            transition: transform 0.3s;
+        }
+        /* Project card has a distinct accent */
+        .project-card {
+            border-left: 5px solid var(--primary-color);
+            padding: 1.5rem; /* Slightly reduced padding for internal project cards */
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* --- Specific Layouts --- */
+
+        /* Home Section */
+        #home h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        #home .card p {
+            font-size: 1.2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--light-text-color);
+        }
+        .home-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2rem;
+            flex-direction: column; 
+        }
+        .home-content img {
+            max-width: 300px; 
+            height: auto;
+            border-radius: 8px; 
+            border: 5px solid var(--primary-color);
+            object-fit: cover;
+        }
+        @media (min-width: 768px) {
+            .home-content {
+                flex-direction: row; 
+            }
+            .home-content img {
+                max-width: 50%;
+                max-height: 400px;
+            }
+        }
+        
+        /* Two Columns for Hobbies/Experience/Projects */
+        .two-columns {
+            display: flex;
+            gap: 2rem;
+            margin: 1.5rem 0;
+            align-items: center; 
+        }
+        .two-columns > div {
+            flex: 1;
+        }
+        .two-columns img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            margin-bottom: 1rem;
+        }
+        .project-image-full-width {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+
+
+        /* Technical Section (Skills) */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .skill-item {
+            padding: 1.5rem;
+            background: #e9f1f8; 
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--primary-color);
+        }
+        .skill-item h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .skill-item p {
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+        
+        /* Footer */
         footer {
             text-align: center;
             padding: 2rem;
             font-size: 0.9rem;
-            color: #666;
+            color: var(--light-text-color);
+            background: var(--secondary-color);
+            border-top: 1px solid var(--border-color);
+            margin-top: 3rem;
         }
-
-        .card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-            margin: 1rem 0;
+        
+        /* Mobile-First Adjustments */
+        @media (max-width: 768px) {
+            .section {
+                padding: 2rem 1rem;
+            }
+            nav {
+                justify-content: space-around;
+                gap: 1rem;
+            }
+            nav a {
+                font-size: 0.9rem;
+            }
+            .two-columns {
+                flex-direction: column;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .project-image-full-width {
+                max-width: 100%; /* Ensure images don't overflow */
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Navigation -->
     <header>
         <nav>
             <a href="#home">Home</a>
@@ -77,78 +253,281 @@
         </nav>
     </header>
 
-    <!-- HOME -->
     <section class="section" id="home">
-        <h1>Welcome</h1>
-        <div class="card"></div>
-            <img src="images/boat_pic.jpg" alt="Boat on water" style="max-width:100%;height:auto;border-radius:8px;margin-bottom:1rem;">
-            <p>Hi, I’m Tristan. This is my portfolio. You can explore my background, my skills, and my projects using the menu above.</p>
+        <h1>Tristan Gayrard's Portfolio</h1>
+        <div class="card home-content">
+            <img src="images/boat_pic.jpg" alt="Tristan's Profile Picture">
+            <div>
+                <p>
+                    Hi, I’m <strong>Tristan Gayrard</strong>. This is my portfolio. You can explore my background, my skills, and my projects using the menu above.
+                </p>
+                <p>
+                    I am currently a student in <strong>Oceanic, Atmospheric and Climate Sciences</strong>. This portfolio aims to provide a comprehensive overview of my skills and experiences in both science and technical skills.
+                </p>
+            </div>
         </div>
     </section>
 
-    <!-- GENERAL -->
     <section class="section" id="general">
-        <h2>General</h2>
+        <h2>General Overview</h2>
         <div class="card">
-            <p>This Portfolio is designed to showcase the general, professional and technical aspects of my career, particularly as a student in Oceanic, Atmospheric en Climate Sciences, but also my personal interests. It aims to provide a comprehensive overview of my skills and experiences.</p>
-        </div>
-        <h3>My Story</h3>
-        <div class="card">
-            <p>Share your background, education, and personal interests here.</p>
-        </div>
-        <h3>My Hobbies</h3>
-        <div class="card">
-            <p> I have two main hobbies: mountain biking and fishing!
-                
+            <p>This Portfolio is designed to showcase the general, professional and technical aspects of my career, particularly as a student in Oceanic, Atmospheric and Climate Sciences, but also my personal interests. It aims to provide a comprehensive overview of my skills and experiences.</p>
+
+            <h3>My Story</h3>
+            <p>
+                After obtaining my high school diploma in science, I headed to the Applied Physics Bachelor's degree. I wanted to keep my future career wide open thanks to a multidisciplinary degree. I graduated with a <strong>Materials and Physico-Chemical Controls specialization</strong>.<br><br>
+                I am now pursuing a <strong>master's degree in Oceanic, Atmospheric and Climate Sciences</strong>, at the University of Toulouse, France.
+            </p>
+
+            <h3>My Hobbies</h3>
+            <p>
+                I have two main hobbies: <strong>mountain biking</strong> and <strong>fishing</strong>!<br><br>
                 I've been a mountain biker for the last decade and have consistently ridden my bike every weekend, going on epic rides throughout the south of France and even in America!
-                
-                As for fishing, I started during the pandemic in 2020, and now I go whenever I don’t get the chance to ride my bike. I usually fish for trout or pike</p>
+            </p>
+            <p>
+                As for fishing, I started during the pandemic in 2020, and now I go whenever I don’t get the chance to ride my bike. I usually fish for trout or pike.
+            </p>
+
+            <div class="two-columns">
+                <div>
+                    <img src="images/bike_pic.png" alt="Mountain Biking">
+                </div>
+                <div>
+                    <img src="images/fish_pic.jpg" alt="Fishing">
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- PROFESSIONAL -->
     <section class="section" id="professional">
-        <h2>Professional</h2>
+        <h2>Professional Experience</h2>
         <div class="card">
-            <p>Describe your work experience, your apprenticeship, and professional responsibilities.</p>
+            <p>In this section you'll find details about my work experience, apprenticeship, and internships.</p>
+
+            <h3>Apprenticeship as a Metrologist - Evo Metrology</h3>
+            <div class="two-columns">
+                <div style="text-align: justify;">
+                    <p>My apprenticeship at <strong>Evo Metrology</strong> represents the sum of my training in metrology gained through my Applied Physics studies. Beyond managing clients' instruments, I am also in charge of monitoring standard torque sensors, calculating their drift, and tracking performance over time.</p>
+                    <p>My work contributed to Evo Metrology's efforts to obtain a <strong>COFRAC accreditation</strong> (French Accreditation Committee). By monitoring standard torque sensors, calculating drift, and tracking instrument performance over time, I played a key role in establishing the rigorous standards required for this certification.</p>
+                    <p>
+                        <a href="https://www.evometrologie.com/" target="_blank" rel="noopener">Evo Metrology Website</a><br>
+                        <a href="images/Apprenticeship_Report_Tristan_Gayrard.pdf" download target="_blank" rel="noopener">Apprenticeship Report (PDF)</a>
+                    </p>
+                </div>
+                <div>
+                    <img src="images/logo_evo.png" alt="Evo Metrology Logo">
+                </div>
+            </div>
+            
+            <hr> 
+
+            <h3>Intern in Atmospheric Sciences - University of Wyoming</h3>
+            <div class="two-columns">
+                <div>
+                    <img src="images/logo_uwyo.png" alt="University of Wyoming Logo">
+                </div>
+                <div style="text-align: justify;">
+                    <p>During my internship at the <strong>University of Wyoming</strong> I worked on the <strong>Site Aerial Basin Emissions Reconciliation (SABER)</strong> project. This project aimed to address the gap between top-down (direct measurements) and bottom-up (component-based emissions factors) accounting in the oil and natural gas industry.</p>
+                </div>
+            </div>
+
+            <div class="two-columns">
+                <div>
+                    <img src="images/drone.png" alt="Greenhouse gas measuring drone">
+                </div>
+                <div style="text-align: justify;">
+                    <p>This internship focused on the <strong>development and calibration</strong> of a new drone-based quantification system, ensuring accurate methane, ethane, nitrous oxide, and carbon dioxide quantification. Key tasks included stability characterization, calibration of mass flow controllers, and creating applications for data analysis.</p>
+                    <p>System testing demonstrated successful calibrations, with a maximum measurement uncertainty of <strong>5%</strong> attributed to the measurement components. These results support accurate greenhouse gas emissions reporting, contributing to improved environmental accountability.</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- TECHNICAL -->
     <section class="section" id="technical">
-        <h2>Technical</h2>
+        <h2>Technical Skills</h2>
         <div class="card">
-            <p>List your technical skills: physics tools, metrology, measurement devices, software, programming, etc.</p>
+            <p>After many years of studying science, I have developed a range of technical skills. Here are the most important ones:</p>
+            
+            <div class="skills-grid">
+                
+                <div class="skill-item">
+                    <h4>Conducting Measurement Campaigns</h4>
+                    <p>Plan, execute, and analyze comprehensive measurement campaigns across diverse industrial and research contexts, ensuring precision and adherence to required standards. Developed through practical work during my bachelor's (e.g., Vitamin C quantification project).</p>
+                </div>
+                
+                <div class="skill-item">
+                    <h4>Applying Metrology and Quality Processing</h4>
+                    <p>Implement metrological methods and quality control procedures to maintain reliability, traceability, and compliance in measurement systems and processes. This skill is a must, as a value is meaningless if not paired with an uncertainty.</p>
+                </div>
+                
+                <div class="skill-item">
+                    <h4>Characterizing Physical and Chemical Quantities</h4>
+                    <p>Evaluate and analyze physical and chemical properties of materials using advanced characterization techniques (e.g., Ultra-Performance Liquid Chromatography - HPLC) to support development, quality control, and innovation.</p>
+                </div>
+
+                <div class="skill-item">
+                    <h4>Defining Measurement Specifications in an Environmental Context</h4>
+                    <p>Develop and implement measurement protocols aligned with environmental sustainability objectives, including monitoring and analyzing environmental parameters. Honed through experience with non-destructive testing methods.</p>
+                </div>
+
+            </div>
         </div>
     </section>
 
-    <!-- RESUME -->
     <section class="section" id="resume">
         <h2>My Resume</h2>
-        <div class="card">
-            <p>You can embed your CV here or link to a PDF.</p>
-            <a href="cv.pdf" target="_blank">Download résumé (PDF)</a>
+        <div class="card" style="text-align: center;">
+            <p style="font-size: 1.1rem; font-weight: 600;">
+                <a href="images/CV_Gayrard_Tristan.pdf" download target="_blank" rel="noopener">📥 Download my resume here (PDF)</a>
+            </p>
         </div>
     </section>
 
-    <!-- PROJECTS -->
     <section class="section" id="projects">
         <h2>My Projects</h2>
         <div class="card">
-            <p>Showcase your projects. Add images or links if needed.</p>
+            <p>As an alumni in Applied Physics and an ex-apprenticeship as a metrologist, I have been involved in various projects as much as for work or a hobby. Going from <strong>software development</strong> to <strong>electronics</strong> and <strong>fluid mechanics</strong>.</p>
+
+            <div class="card project-card">
+                <h3>Mini Weather Station</h3>
+                <div class="two-columns">
+                    <div style="text-align: justify;">
+                        <p>Using an Arduino Uno, a BME680 sensor, and an OLED display, I built a "Mini Weather Station." The display shows temperature, relative humidity, and air quality. A small icon in the corner (☀) provides a simplified weather forecast based on data from the sensor, calculated using an algorithm that analyzes pressure, temperature, and humidity. This project helped me improve my Arduino skills while learning the basics of weather forecasting.</p>
+                    </div>
+                    <div>
+                        <img src="images/mini_weather_station.jpg" alt="Mini Weather Station">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card project-card">
+                <h3>Automated Water Bowl</h3>
+                <div class="two-columns">
+                    <div>
+                        <img src="images/water_bowl.png" alt="Automated Water Bowl">
+                    </div>
+                    <div style="text-align: justify;">
+                        <p>My very first project is an Automated Water Bowl, made for my dog, Naya. When it's empty it just fills itself up with the water container hidden in the back. The idea was that when I left my house for university my parents would have less work to do to take care for Naya.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card project-card">
+                <h3>PNA - Planetary Nebula Analysis</h3>
+                <div class="two-columns">
+                    <div style="text-align: justify;">
+                        <p>PNA is a software I developed to calculate the class of a nebula and its temperature. It also generates a visually appealing graph displaying the nebula's spectrum with the corresponding colors of the visible spectrum.</p>
+                    </div>
+                    <div>
+                        <img src="images/screenshots/PNA/PNA1.png" alt="PNA Software Screenshot 1">
+                    </div>
+                </div>
+                <div class="two-columns">
+                    <div>
+                        <img src="images/screenshots/PNA/PNA2.png" alt="PNA Software Screenshot 2">
+                    </div>
+                    <div style="text-align: justify;">
+                        <p>I made this software for my dad, who is an amateur astrophysicist. It helps him with his work and saves him a lot of time on a laborious task!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card project-card">
+                <h3>LINEST</h3>
+                <div class="two-columns">
+                    <div style="text-align: justify;">
+                        <p>LINEST, or 'DROITEREG,' is software I developed during my apprenticeship as a metrologist. The goal was to create an easy-to-use plot maker that can generate reports of the graphs. I also added statistical calculations and corrected the values of the data.</p>
+                    </div>
+                    <div>
+                        <img src="images/screenshots/DROITEREG/DROITEREG2.png" alt="LINEST Software Screenshot 1">
+                    </div>
+                </div>
+                <div class="two-columns">
+                    <div>
+                        <img src="images/screenshots/DROITEREG/DROITEREG3.png" alt="LINEST Report Example">
+                    </div>
+                    <div style="text-align: justify;">
+                        <p>Here is an example of a report made with the LINEST application.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card project-card">
+                <h3>Strato Easy Plot</h3>
+                <div class="two-columns">
+                    <div style="text-align: justify;">
+                        <p>Strato Easy Plot is an Application to plot easily any data gathered from the "Strato" spectrometer and calculate statistics in one click. The early making of this application saved my coworkers and myself lots of time.</p>
+                    </div>
+                    <div>
+                        <img src="images/screenshots/StratoEasyPlot/StratoEasyPlot.png" alt="Strato Easy Plot Screenshot">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card project-card">
+                <h3>Volumetric Flows App</h3>
+                <div class="two-columns">
+                    <div style="text-align: justify;">
+                        <p>The Volumetric Flows Application is designed to calculate volumetric flows for gas dilutions, a repetitive calculation often used in the field of Atmospheric Science.</p>
+                    </div>
+                    <div>
+                        <img src="images/screenshots/DiluFlowCalc/DFC.png" alt="Volumetric Flows App Screenshot">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card project-card">
+                <h3>Strato Calibration</h3>
+                <div class="two-columns">
+                    <div style="text-align: justify;">
+                        <p>Strato Calibration is an application to calibrate the "Strato" spectrometer, used with the Volumetric Flows App. The calibration of an instrument is a crucial step in ensuring the acquisition of accurate data.</p>
+                    </div>
+                    <div>
+                        <img src="images/screenshots/StratoCalibration/StratoCalibration1.png" alt="Strato Calibration Screenshot 1">
+                    </div>
+                </div>
+                <img src="images/screenshots/StratoCalibration/StratoCalibration2.png" alt="Strato Calibration Screenshot 2" class="project-image-full-width" style="max-width:48%;display:block;margin-left:auto;margin-right:auto;">
+            </div>
+
+            <div class="card project-card">
+                <h3>CalculaTorque</h3>
+                <div class="two-columns">
+                    <div style="text-align: justify;">
+                        <p>CalculaTorque is an application I developed at the request of a coworker during my apprenticeship. Its purpose is to calculate torque differences and adjust them to their nominal values. After a long day at work, the last thing you want is to calculate these values one by one in your head!</p>
+                    </div>
+                    <div>
+                        <img src="images/screenshots/CalculaTorque/CalculaTorque.png" alt="CalculaTorque Screenshot">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card project-card">
+                <h3>Softball Layout Plan App</h3>
+                <div class="two-columns">
+                    <div style="text-align: justify;">
+                        <p>This is a fun application designed to create a Baseball/Softball layout plan. Simply enter the players' names and drag them onto the field to position them. To remove a player, just place them in the trash bin.</p>
+                    </div>
+                    <div>
+                        <img src="images/screenshots/Softball/Softball.png" alt="Softball Layout Plan App Screenshot">
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="section" id="contact">
         <h2>Get in Touch</h2>
-        <div class="card">
-            <p>Email: tristan.gayrard@utoulouse.fr</p>
+        <div class="card" style="text-align: center;">
+            <p style="font-size: 1.1rem;">
+                Email: 
+                <a href="mailto:tristan.gayrard@utoulouse.fr">tristan.gayrard@utoulouse.fr</a>
+            </p>
         </div>
     </section>
 
     <footer>
-        © 2025 Tristan Gayrard — Portfolio
+        &copy; 2025 Tristan Gayrard — Portfolio - Styled by Gemini
     </footer>
 
 </body>
