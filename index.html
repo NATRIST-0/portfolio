@@ -238,15 +238,34 @@
 
         /* Mobile-First Adjustments */
         @media (max-width: 768px) {
+            header {
+            padding: 0.5rem 1rem;
+            }
+            nav {
+            gap: 1rem;
+            }
+            nav a {
+            font-size: 0.9rem;
+            padding: 0.3rem 0;
+            }
             .section {
-                padding: 2rem 1rem;
+            padding: 1.5rem 1rem;
+            }
+            .card {
+            padding: 1rem;
+            margin: 1rem 0;
             }
             .two-columns {
-                flex-direction: column;
+            flex-direction: column;
+            gap: 1rem;
             }
             .nav-arrow {
-                padding: 5px 10px;
-                font-size: 1.2rem;
+            padding: 5px 10px;
+            font-size: 1.2rem;
+            }
+            .project-card-carousel {
+            flex: 0 0 100%;
+            margin-left: 0;
             }
         }
         
@@ -260,8 +279,43 @@
             border-top: 1px solid var(--border-color);
             margin-top: 3rem;
         }
+
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-modal img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 36px;
+            color: white;
+            cursor: pointer;
+            user-select: none;
+        }
+
+
     </style>
 </head>
+
+<div id="image-modal" class="image-modal">
+    <span class="close-modal">&times;</span>
+    <img id="modal-image" alt="">
+</div>
+
 
 <body>
 
@@ -313,6 +367,37 @@
             };
         }
 
+        function initImageLightbox() {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-image');
+            const closeBtn = document.querySelector('.close-modal');
+
+            document.querySelectorAll('.project-card-carousel img').forEach(img => {
+                img.style.cursor = 'zoom-in';
+                img.addEventListener('click', () => {
+                    modal.style.display = 'flex';
+                    modalImg.src = img.src;
+                    modalImg.alt = img.alt;
+                });
+            });
+
+            closeBtn.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    modal.style.display = 'none';
+                }
+            });
+        }
+
         function loadSectionContent(sectionId) {
             const sectionElement = document.getElementById(sectionId);
             // Pour GitHub Pages, le chemin relatif commence par sections/
@@ -338,10 +423,10 @@
         function loadAllSections() {
             const fetchPromises = SECTIONS.map(loadSectionContent);
 
-            // Initialise les carrousels après que TOUTES les sections sont chargées.
             Promise.all(fetchPromises)
                 .then(() => {
-                    initCarousels(); 
+                    initCarousels();
+                    initImageLightbox(); // 👈 AJOUT ICI
                 })
                 .catch(error => {
                     console.error("Erreur lors du chargement des sections:", error);
