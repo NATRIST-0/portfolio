@@ -307,6 +307,53 @@
             user-select: none;
         }
 
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .gallery-item {
+            background-color: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+            cursor: pointer;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-container {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .gallery-info {
+            padding: 8px;
+            text-align: center;
+        }
+
+        .gallery-info h3 {
+            margin: 0 0 2px 0;
+            font-size: 0.95em;
+        }
+
+        .gallery-info h4 {
+            margin: 0;
+            font-size: 0.8em;
+        }
 
     </style>
 </head>
@@ -326,6 +373,7 @@
             <a href="#professional">Professional</a>
             <a href="#technical">Technical</a>
             <a href="#projects">My Projects</a>
+            <a href="#gallery">Gallery</a>
             <a href="#resume">My Resume</a>
             <a href="#contact">Get in Touch</a>
         </nav>
@@ -335,16 +383,17 @@
     <section class="section" id="general"></section>
     <section class="section" id="professional"></section>
     <section class="section" id="technical"></section>
-    <section class="section" id="resume"></section>
     <section class="section" id="projects"></section>
+    <section class="section" id="gallery"></section>
+    <section class="section" id="resume"></section>
     <section class="section" id="contact"></section>
 
     <footer>
-        &copy; 2025 Tristan Gayrard
+        &copy; 2026 Tristan Gayrard
     </footer>
 
     <script>
-        const SECTIONS = ['home', 'general', 'professional', 'technical', 'resume', 'projects', 'contact'];
+        const SECTIONS = ['home', 'general', 'professional', 'technical', 'resume', 'projects', 'gallery','contact'];
 
         function initCarousels() {
             // Rend la fonction de défilement disponible globalement pour les boutons HTML
@@ -372,12 +421,13 @@
             const modalImg = document.getElementById('modal-image');
             const closeBtn = document.querySelector('.close-modal');
 
-            document.querySelectorAll('.project-card-carousel img').forEach(img => {
+        document.querySelectorAll('.project-card-carousel img, .gallery-grid img').forEach(img => {
                 img.style.cursor = 'zoom-in';
                 img.addEventListener('click', () => {
                     modal.style.display = 'flex';
                     modalImg.src = img.src;
                     modalImg.alt = img.alt;
+                    modalImg.style.backgroundColor = '#ffffff'; 
                 });
             });
 
@@ -426,7 +476,7 @@
             Promise.all(fetchPromises)
                 .then(() => {
                     initCarousels();
-                    initImageLightbox(); // 👈 AJOUT ICI
+                    initImageLightbox();
                 })
                 .catch(error => {
                     console.error("Erreur lors du chargement des sections:", error);
