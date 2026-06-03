@@ -1,73 +1,84 @@
 <h2>Professional Experience</h2>
-        <div class="card">
-            <p>In this section you'll find details about my work experience, apprenticeship, and internships. Scroll through the cards below!</p>
+<div class="card" style="margin-bottom: 2rem; background: transparent; box-shadow: none; padding: 0;">
+    <p>In this section you'll find details about my work experience, apprenticeship, and internships in chronological order.</p>
+</div>
 
-            <div class="carousel-container">
-                <button class="nav-arrow left-arrow" onclick="scrollSection('professional-wrapper', -1)">&#10094;</button>
-                <button class="nav-arrow right-arrow" onclick="scrollSection('professional-wrapper', 1)">&#10095;</button>
+<div class="timeline">
 
-                <div class="projects-wrapper" id="professional-wrapper">
-
-                    <div class="card project-card-carousel">
-                        <h3>Intern in an Aerologie Laboratory - LAERO</h3>
-                        <div class="two-columns">
-                            <div style="text-align: justify;">
-                                <p><strong>Quantification and identification of combustion sources by low-cost sensors:</strong></p>
-                                <p> The work consists in calibrating the low-cost sensors on two types of combustion: vegetation fires and thermal engine vehicles, to qualify these sensors for the identification of sources. For this, a campaign is planned at the Atmospheric Research Center of Campistrous. During this campaign, several different experiments will be conducted. The smokes from the combustion of different types of plants (fern, heather, hay, wood) and those from the exhaust of different cars (diesel and gasoline) can be conducted into the combustion chamber to be sampled jointly by the reference analyzers and the MICROMEGAS sensors. The calibration of the data will be done with Machine Learning tools developed at LAERO. The analysis of the tracer-tracer correlations of the two data sets (Analyzers and MICROMEGAS) will allow to determine the signatures of the different types of combustion and to quantify the capacity of MICROMEGAS to identify them.</p>
-                                <p>During this internship, I developped a software tool based on a machine learning calibration procedure, so it would be easier for my colleagues to use. </p>
-                                <p>
-                                    <a href="https://laero.omp.eu" target="_blank" rel="noopener">LAERO Website</a><br>
-                                    <a href="images/LAERO_Internship_Report_Tristan_Gayrard.pdf" download target="_blank" rel="noopener">Internship Report (PDF)</a>
-                                </p>
-                            </div>
-                            <div>
-                                <img src="images/logo_laero.jpg" alt="LAERO Logo">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card project-card-carousel">
-                        <h3>Apprenticeship as a Metrologist - Evo Metrology</h3>
-                        <div class="two-columns">
-                            <div style="text-align: justify;">
-                                <p>During my apprenticeship at <strong>Evo Metrology</strong>, a laboratory specializing in the verification of measuring instruments, I focused on two COFRAC accreditation processes: one for torque tools and another for temperature chambers. I wrote procedures, designed automated Excel templates for data tracking and analysis, and developed software tools such as <strong>CalculaTorque</strong> and <strong>DROITEREG</strong> to enhance accuracy, traceability, and productivity.</p>
-                                <p>I also contributed to sieve verification. COFRAC accreditation for torque was successfully obtained, and the documentation for temperature chambers was completed. These efforts helped the company expand its scope while ensuring high technical standards.</p>
-                                <p>
-                                    <a href="https://www.evometrologie.com/" target="_blank" rel="noopener">Evo Metrology Website</a><br>
-                                    <a href="images/EVO_Apprenticeship_Report_Tristan_Gayrard.pdf" download target="_blank" rel="noopener">Apprenticeship Report (PDF)</a>
-                                </p>
-                            </div>
-                            <div>
-                                <img src="images/logo_evo.png" alt="Evo Metrology Logo">
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="card project-card-carousel">
-                        <h3>Intern in Atmospheric Sciences - University of Wyoming</h3>
-                        <div class="two-columns">
-                            <div>
-                                <img src="images/logo_uwyo.png" alt="University of Wyoming Logo">
-                            </div>
-                            <div style="text-align: justify;">
-                                <p>During my internship at the <strong>University of Wyoming</strong> I worked on the <strong>Site Aerial Basin Emissions Reconciliation (SABER)</strong> project. This project aimed to address the gap between top-down (direct measurements) and bottom-up (component-based emissions factors) accounting in the oil and natural gas industry.</p>
-                            </div>
-                        </div>
-                        <div class="two-columns">
-                            <div>
-                                <img src="images/drone.png" alt="Greenhouse gas measuring drone">
-                            </div>
-                            <div style="text-align: justify;">
-                                <p>This internship focused on the <strong>development and calibration</strong> of a new drone-based quantification system, ensuring accurate methane, ethane, nitrous oxide, and carbon dioxide quantification. Key tasks included stability characterization, calibration of mass flow controllers, and creating applications for data analysis.</p>
-                                <p>System testing demonstrated successful calibrations, with a maximum measurement uncertainty of <strong>5%</strong> attributed to the measurement components. These results support accurate greenhouse gas emissions reporting, contributing to improved environmental accountability.</p>
-                                <p>
-                                    <a href="https://www.uwyo.edu/atsc/index.html" target="_blank" rel="noopener">University of Wyoming Website</a><br>
-                                    <a href="images/UW_Internship_Report_Tristan_Gayrard.pdf" download target="_blank" rel="noopener">Internship Report (PDF)</a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
+    <div class="timeline-item">
+        <div class="timeline-date">April 2026 - July 2026</div>
+        <div class="timeline-content card">
+            <h3>Intern in an Aerologie Laboratory - LAERO</h3>
+            <div class="two-columns">
+                <div style="text-align: justify;">
+                    <p><strong>Quantification and identification of combustion sources by low-cost sensors:</strong></p>
+                    <p>My internship at LAERO focused on studying the chemical composition of smoke plumes. As part of the European project EUBURN, I worked on deploying and qualifying an instrument developped in the laboratory containing miniaturized low-cost gas sensors embedded on drones for in situ measurements.
+                    During this internship, I conducted controlled combustion experiments at the Atmospheric Research Center (CRA, Lannemezan) to sample various types of biomass using both reference analyzers and low-cost sensors. 
+                    A major part of my work involved developing and optimizing the calibration procedure using Machine Learning in Python.
+                    I also processed and analyzed field data collected during prescribed burning campaigns in France (Pyrenees-Orientales, Haute-Garonne) and Spain (Andalusia). By analyzing tracer-tracer correlations, such as CO/NOx and PM2.5/CO.</p>
+                    <p>During this internship, I developped a software tool based on a machine learning calibration procedure, so it would be easier for my colleagues to use. </p>
+                    <p>
+                        <a href="https://laero.omp.eu" target="_blank" rel="noopener">LAERO Website</a><br>
+                        <a href="resources/reports/LAERO_Internship_Report_Tristan_Gayrard.pdf" download target="_blank" rel="noopener">Internship Report (PDF)</a>
+                    </p>
+                </div>
+                <div>
+                    <img src="resources/logos/logo_laero.jpg" alt="LAERO Logo">
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="timeline-item">
+        <div class="timeline-date">October 2024 - August 2025</div>
+        <div class="timeline-content card">
+            <h3>Apprenticeship as a Metrologist - Evo Metrology</h3>
+            <div class="two-columns">
+                <div style="text-align: justify;">
+                    <p>During my apprenticeship at Evo Metrology, a laboratory specializing in the verification of measuring instruments, I focused on two COFRAC accreditation processes: one for torque tools and another for temperature chambers. I wrote procedures, designed automated Excel templates for data tracking and analysis, and developed software tools such as CalculaTorque and DROITEREG to enhance accuracy, traceability, and productivity.</p>
+                    <p>I also contributed to sieve verification. COFRAC accreditation for torque was successfully obtained, and the documentation for temperature chambers was completed. These efforts helped the company expand its scope while ensuring high technical standards.</p>
+                    <p>
+                        <a href="https://www.evometrologie.com/" target="_blank" rel="noopener">Evo Metrology Website</a><br>
+                        <a href="resources/reports/EVO_Apprenticeship_Report_Tristan_Gayrard.pdf" download target="_blank" rel="noopener">Apprenticeship Report (PDF)</a>
+                    </p>
+                </div>
+                <div>
+                    <img src="resources/logos/logo_evo.png" alt="Evo Metrology Logo">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="timeline-item">
+        <div class="timeline-date">April 2024 - July 2024</div>
+        <div class="timeline-content card">
+            <h3>Intern in Atmospheric Sciences - University of Wyoming</h3>
+            <div class="two-columns">
+                <div style="text-align: justify;">
+                    <p>During my internship at the University of Wyoming I worked on the Site Aerial Basin Emissions Reconciliation (SABER) project. This project aimed to address the gap between top-down (direct measurements) and bottom-up (component-based emissions factors) accounting in the oil and natural gas industry.</p>
+                </div>
+                <div>
+                    <img src="resources/logos/logo_uwyo.png" alt="University of Wyoming Logo">
+                </div>
+            </div>
+            <div class="two-columns">
+                <div style="text-align: justify;">
+                    <p>This internship focused on the development and calibration of a new drone-based quantification system, ensuring accurate methane, ethane, nitrous oxide, and carbon dioxide quantification. Key tasks included stability characterization, calibration of mass flow controllers, and creating applications for data analysis.</p>
+                    <p>System testing demonstrated successful calibrations, with a maximum measurement uncertainty of 5% attributed to the measurement components. These results support accurate greenhouse gas emissions reporting, contributing to improved environmental accountability.</p>
+                </div>
+                <div>
+                    <img src="resources/pictures/drone.png" alt="Greenhouse gas measuring drone">
+                </div>
+            </div>
+            <div style="text-align: left;">
+                <p>
+                    <p>
+                        <a href="https://www.uwyo.edu/atsc/index.html" target="_blank" rel="noopener">University of Wyoming Website</a><br>
+                        <a href="resources/reports/UW_Internship_Report_Tristan_Gayrard.pdf" download target="_blank" rel="noopener">Internship Report (PDF)</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
